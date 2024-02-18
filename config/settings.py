@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -73,11 +73,17 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+# import os
+# secret = os.getenv('PASSWORD_POSTGRESQL')
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # django.db.backends.postgresql /
+        # django.db.backends.postgresql_psycopg2
+        'NAME': 'django_project',
+        'USER': 'postgres',
+        # 'HOST': '127.0.0.1',  # Можно не писать, если стандартный localhost
+        # 'PORT': 3452,  # Можно не писать, если стандартный
+        'PASSWORD': '133124Ds'  # os.getenv('PASSWORD_POSTGRESQL')
     }
 }
 
@@ -116,9 +122,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+# Отвечает за формирование адреса доступа к статике
 STATIC_URL = 'static/'
+
+# Отвечает за место на диске, откуда необходимо подгружать статику
+STATICFILES_DIRS = (
+    BASE_DIR / 'static',
+)
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Нужны для настройки/работы с документами, которые загружал пользователь (фото, аватарки, видео, аудиофайлф)
+# /работают также как и STATIC_URL
+# Необходимо создать папку 'media' в корне проекта
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
