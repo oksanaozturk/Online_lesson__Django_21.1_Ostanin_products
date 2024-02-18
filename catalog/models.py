@@ -33,6 +33,8 @@ class Product(models.Model):
     date_of_creation = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     last_modified_date = models.DateField(auto_now=True, verbose_name='Дата изменения')
 
+    # manufactured_at = models.DateField(auto_now=True, verbose_name='Дата производства', **NULLABEL)
+
     # Необходимо для отображения модели на русскорм языке в административной панели
     class Meta:
         verbose_name = 'Продукт'
