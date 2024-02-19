@@ -64,9 +64,12 @@ catalog
 
 * Команды для создания фикстур:
 * Общая:
-  python -Xutf8 manage.py dumpdata catalog -o fixture/data_catalog.json   
+  python -Xutf8 manage.py dumpdata catalog -o fixture/data_catalog.json
+    
 * По каждой таблице отдельно:
+  
   python -Xutf8 manage.py dumpdata catalog.product -o fixture/catalog_product.json
+  
   python -Xutf8 manage.py dumpdata catalog.category -o fixture/catalog_category.json
 
   
