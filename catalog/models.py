@@ -24,7 +24,7 @@ class Product(models.Model):
 
     name = models.CharField(max_length=100, verbose_name='Наименование')
     description = models.TextField(verbose_name='Описание', **NULLABEL)
-    preview = models.ImageField(upload_to='dogs_foto', verbose_name='Изображение', **NULLABEL)  # blank=True. null=True
+    preview = models.ImageField(upload_to='products_foto', verbose_name='Изображение', **NULLABEL)  # blank=True. null=True
     # related_name говорит об отношении один ко многим (в одной категории м.б. несколько товаров).
     # М.Б. обращаться как category.products, а не category.product_set
     # on_delete показывает, что будет отображаться в поле при удалении категории, в данном случае ноль
