@@ -7,7 +7,7 @@ class Command(BaseCommand):
 
     @staticmethod
     def json_read_categories():
-        """Gолучаем данные из фикстуры с категориями"""
+        """Получаем данные из фикстуры с категориями"""
 
         with open('fixture/catalog_category.json', 'r', encoding='UTF-8') as file:
             categories = json.load(file)
@@ -15,7 +15,7 @@ class Command(BaseCommand):
 
     @staticmethod
     def json_read_products():
-        """Gолучаем данные из фикстуры с с продуктами"""
+        """Получаем данные из фикстуры с с продуктами"""
 
         with open('fixture/catalog_product.json', 'r', encoding='UTF-8') as file:
             products = json.load(file)
@@ -23,13 +23,13 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-# Удалите все продукты
+        # Удалите все продукты
         Product.objects.all().delete()
 
-# Удалите все категории
+        # Удалите все категории
         Category.objects.all().delete()
 
-# Создайте списки для хранения объектов
+        # Создайте списки для хранения объектов
         product_for_create = []
         category_for_create = []
 
