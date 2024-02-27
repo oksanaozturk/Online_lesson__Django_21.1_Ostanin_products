@@ -6,7 +6,8 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <img src="{{ object.preview | media_filter }}" alt="Product Image" class="Image fluid">
+<!--        <img src="/media/{{ product.preview }}" alt="Product Image" class="Image fluid">-->
+            <img src="{{ product.preview | media_filter }}" alt="Product Image" class="Image fluid">
             <div class="card-body">
               <p class="card-text">{{ object.description }}</p>
               <div class="d-flex justify-content-between align-items-center">

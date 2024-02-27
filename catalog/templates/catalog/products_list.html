@@ -18,6 +18,7 @@
         {% for product in object_list %}
         <div class="col">
           <div class="card shadow-sm">
+<!--        <img src="/media/{{ product.preview }}" alt="Product Image" class="Image fluid">-->
             <img src="{{ product.preview | media_filter }}" alt="Product Image" class="Image fluid">
             <div class="card-body">
               <p class="card-text">{{ product }}</p>
