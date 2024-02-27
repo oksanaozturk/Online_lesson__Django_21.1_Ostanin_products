@@ -1,0 +1,38 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Магазин домашних продуктов</h1>
+        <p class="lead text-body-secondary">Все продукты, представленные в нашем магазине, это экологически чистые,
+          свежие и всегда очень вкусные товары, выращенные и изготовленные в фермерском хозяйстве "Радость жизни".</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for product in object_list %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ product.preview | media_filter }}" alt="Product Image" class="Image fluid">
+            <div class="card-body">
+              <p class="card-text">{{ product }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'catalog:product_detail' product.pk %}" class="text-black">На продукт</a></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-body-secondary">{{ product.category }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
