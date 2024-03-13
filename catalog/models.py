@@ -23,8 +23,8 @@ class Category(models.Model):
 class Product(models.Model):
 
     name = models.CharField(max_length=100, verbose_name='Наименование')
-    description = models.TextField(verbose_name='Описание', **NULLABEL)
-    preview = models.ImageField(upload_to='products_foto', verbose_name='Изображение', **NULLABEL)  # blank=True. null=True
+    description = models.TextField(verbose_name='Описание', **NULLABEL)  # blank=True. null=True
+    preview = models.ImageField(upload_to='products_foto', verbose_name='Изображение', **NULLABEL)
     # related_name говорит об отношении один ко многим (в одной категории м.б. несколько товаров).
     # М.Б. обращаться как category.products, а не category.product_set
     # on_delete показывает, что будет отображаться в поле при удалении категории, в данном случае ноль
@@ -32,6 +32,9 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='Цена')
     date_of_creation = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     last_modified_date = models.DateField(auto_now=True, verbose_name='Дата изменения')
+    view_counter = models.PositiveIntegerField(verbose_name='Счетчик просмотров',
+                                               help_text="Укажите количество просмотров",
+                                               default=0)
 
     # manufactured_at = models.DateField(auto_now=True, verbose_name='Дата производства', **NULLABEL)
 
