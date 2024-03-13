@@ -7,13 +7,13 @@
         <h1 class="fw-light">Магазин домашних продуктов</h1>
         <p class="lead text-body-secondary">Все продукты, представленные в нашем магазине, это экологически чистые,
           свежие и всегда очень вкусные товары, выращенные и изготовленные в фермерском хозяйстве "Радость жизни".</p>
+        <a class="btn btn btn-outline-primary mt-4" href="{% url 'catalog:product_create' %}" role="button">Добавить Продукт</a>
       </div>
     </div>
   </section>
 
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
-
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         {% for product in object_list %}
         <div class="col">
@@ -23,10 +23,16 @@
             <div class="card-body">
               <p class="card-text">{{ product }}</p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'catalog:product_detail' product.pk %}" class="text-black">На продукт</a></button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'catalog:product_detail' product.pk %}" class="text-black">На продукт</a></button>-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'catalog:product_update' product.pk %}" class="text-black">Редактировать</a></button>-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'catalog:product_delete' product.pk %}" class="text-black">Удалить</a></button>-->
+<!--                </div>-->
+                  <ul>
+                      <li><a href="{% url 'catalog:product_detail' product.pk %}" class="text-black">На продукт</a></li>
+                      <li><a href="{% url 'catalog:product_update' product.pk %}" class="text-black">Редактировать</a></li>
+                      <li><a href="{% url 'catalog:product_delete' product.pk %}" class="text-black">Удалить</a></li>
+                  </ul>
                 <small class="text-body-secondary">{{ product.category }}</small>
               </div>
             </div>
