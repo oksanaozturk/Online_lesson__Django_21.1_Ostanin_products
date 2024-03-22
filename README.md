@@ -1,4 +1,4 @@
-# Online_lesson__Django_22.1_Ostanin_products
+# Online_lesson__Django_21.1_Ostanin_products (тема:  FBV и CBV)
 
 В уроке Online_lesson__Django_21.1_Ostanin_products сделаны следующие шаги:
 
